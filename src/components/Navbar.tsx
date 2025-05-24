@@ -2,10 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +31,20 @@ export default function Navbar() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  // Function to get active link styles
+  const getLinkStyles = (href: string) => {
+    const isActive = pathname === href;
+    const baseStyles = "transition duration-150";
+    
+    if (isActive) {
+      // Active link styles
+      return `${baseStyles} ${scrolled ? "text-teal-600 font-semibold" : "text-teal-400 font-semibold"}`;
+    } else {
+      // Inactive link styles
+      return `${baseStyles} ${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"}`;
+    }
+  };
+
   return (
     <header className={`fixed top-0 z-50 w-full flex justify-center backdrop-blur-sm transition-all duration-300 ${
       scrolled ? "bg-white shadow-sm" : "bg-transparent"
@@ -46,7 +62,7 @@ export default function Navbar() {
                   aria-label="Toggle menu"
                 >
                 <Image
-                    src="/hamburger.svg"
+                    src={scrolled ? "/hamburger-dark.svg" : "/hamburger.svg"}
                     alt="Menu"
                     width={20}
                     height={20}
@@ -75,45 +91,33 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/"
-                    className={`${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"} transition duration-150`}
+                    className={getLinkStyles("/")}
                   >
                     Home
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/features"
-                    className={`${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"} transition duration-150 flex justify-center items-center gap-2`}
+                    href="/#why-penthry"
+                    className={`${getLinkStyles("/#why-penthry")} flex justify-center items-center gap-2`}
                   >
                     Features
-                    <Image
-                      src={scrolled ? "/dropdown-dark.svg" : "/dropdown.svg"}
-                      alt="drop"
-                      width={20}
-                      height={20}
-                      className="h-2 w-auto"
-                    />
+                   
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/pricing"
-                    className={`${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"} transition duration-150 flex justify-center items-center gap-2`}
+                    className={`${getLinkStyles("/pricing")} flex justify-center items-center gap-2`}
                   >
                     Pricing
-                    <Image
-                      src={scrolled ? "/dropdown-dark.svg" : "/dropdown.svg"}
-                      alt="drop"
-                      width={20}
-                      height={20}
-                      className="h-2 w-auto"
-                    />
+                 
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/use-cases"
-                    className={`${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"} transition duration-150`}
+                    href="/#who-is-penthry-for"
+                    className={getLinkStyles("/#who-is-penthry-for")}
                   >
                     Use Cases
                   </Link>
@@ -121,7 +125,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href="/resources"
-                    className={`${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"} transition duration-150`}
+                    className={getLinkStyles("/resources")}
                   >
                     Resources
                   </Link>
@@ -154,7 +158,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/"
-                  className={`block py-2 ${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"} transition duration-150`}
+                  className={`block py-2 ${getLinkStyles("/")}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Home
@@ -162,8 +166,8 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/features"
-                  className={`block py-2 ${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"} transition duration-150 flex items-center gap-2`}
+                  href="/#why-penthry"
+                  className={`block py-2 ${getLinkStyles("/#why-penthry")} flex items-center gap-2`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Features
@@ -179,7 +183,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/pricing"
-                  className={`block py-2 ${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"} transition duration-150 flex items-center gap-2`}
+                  className={`block py-2 ${getLinkStyles("/pricing")} flex items-center gap-2`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Pricing
@@ -194,8 +198,8 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="/use-cases"
-                  className={`block py-2 ${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"} transition duration-150`}
+                  href="/#who-is-penthry-for"
+                  className={`block py-2 ${getLinkStyles("/#who-is-penthry-for")}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Use Cases
@@ -204,7 +208,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/resources"
-                  className={`block py-2 ${scrolled ? "text-black hover:text-black/80" : "text-white hover:text-white/80"} transition duration-150`}
+                  className={`block py-2 ${getLinkStyles("/resources")}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Resources

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 export default function WhyPenthry() {
   return (
-    <section className="py-20">
+    <section id="why-penthry" className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-indigo-50 rounded-3xl px-6 py-12">
           <div className="flex flex-col justify-start items-center gap-12 max-w-7xl mx-auto">

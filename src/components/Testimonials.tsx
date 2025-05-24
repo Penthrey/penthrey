@@ -61,7 +61,7 @@ export default function Testimonials() {
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index} 
-                className="p-6 bg-white rounded-3xl outline outline-1 outline-offset-[-1px] outline-zinc-300 flex flex-col justify-start items-start gap-6"
+                className="p-6 bg-white rounded-3xl outline outline-offset-[-1px] outline-zinc-300 flex flex-col justify-start items-start gap-6"
               >
                 <div className="flex justify-start items-start gap-2 w-full">
                   <div className="w-10 h-10 rounded-full bg-indigo-100 overflow-hidden flex-shrink-0">

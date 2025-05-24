@@ -18,13 +18,13 @@ export default function Footer() {
         {/* Product Links */}
         <div className="flex flex-col gap-4">
           <h3 className="text-sm font-semibold text-gray-500">Product</h3>
-          <Link href="/features" className="text-[#4e4e56] font-medium hover:text-indigo-700">
+          <Link href="/#why-penthry" className="text-[#4e4e56] font-medium hover:text-indigo-700">
             Features
           </Link>
           <Link href="/pricing" className="text-[#4e4e56] font-medium hover:text-indigo-700">
             Pricing
           </Link>
-          <Link href="/use-cases" className="text-[#4e4e56] font-medium hover:text-indigo-700">
+          <Link href="/#who-is-penthry-for" className="text-[#4e4e56] font-medium hover:text-indigo-700">
             Use Cases
           </Link>
         </div>
@@ -32,13 +32,13 @@ export default function Footer() {
         {/* Company Links */}
         <div className="flex flex-col gap-4">
           <h3 className="text-sm font-semibold text-gray-500">Company</h3>
-          <Link href="/about" className="text-[#4e4e56] font-medium hover:text-indigo-700">
+          <Link href="/#why-penthry" className="text-[#4e4e56] font-medium hover:text-indigo-700">
             About Us
           </Link>
-          <Link href="/careers" className="text-[#4e4e56] font-medium hover:text-indigo-700">
+          <Link href="/" className="text-[#4e4e56] font-medium hover:text-indigo-700">
             Careers
           </Link>
-          <Link href="/blog" className="text-[#4e4e56] font-medium hover:text-indigo-700">
+          <Link href="/resources" className="text-[#4e4e56] font-medium hover:text-indigo-700">
             Blog
           </Link>
         </div>
@@ -46,13 +46,13 @@ export default function Footer() {
         {/* Support Links */}
         <div className="flex flex-col gap-4">
           <h3 className="text-sm font-semibold text-gray-500">Support</h3>
-          <Link href="/help" className="text-[#4e4e56] font-medium hover:text-indigo-700">
+          <Link href="/resources" className="text-[#4e4e56] font-medium hover:text-indigo-700">
             Help Center
           </Link>
-          <Link href="/contact" className="text-[#4e4e56] font-medium hover:text-indigo-700">
+          <Link href="/" className="text-[#4e4e56] font-medium hover:text-indigo-700">
             Contact
           </Link>
-          <Link href="/terms" className="text-[#4e4e56] font-medium hover:text-indigo-700">
+          <Link href="/" className="text-[#4e4e56] font-medium hover:text-indigo-700">
             Terms
           </Link>
         </div>
